@@ -1,6 +1,8 @@
+import random
+
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QAction
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QLabel, QPushButton, QMenu
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QLabel, QPushButton, QMenu, QMessageBox
 
 
 class MainWindow(QWidget):
@@ -65,17 +67,35 @@ class MainWindow(QWidget):
 
         self.setup_styles()
 
-    def setup_styles(self):
-        pass
-
-    def set_level(self, param):
-        pass
-
-    def show_meaning(self):
-        pass
+    def set_level(self, level):
+        """Sets the current difficulty level of the words."""
+        self.current_level = level
+        self.show_random_word()
 
     def show_random_word(self):
-        pass
+        """Shows a random word from the selected level"""
+        if self.current_level:
+            level_words = [word for word in self.words if word.level == self.current_level]
+            if level_words:
+                self.word = random.choice(level_words)
+                self.label_word.setText(self.word.word)
+                self.label_meaning.clear()
+            else:
+                QMessageBox.warning(self, "Warning", f"No word found for level: {self.current_level}")
+        else:
+            QMessageBox.warning(self, "Warning", "Please select a difficulty level")
+
+    def show_meaning(self):
+        """Displays the meaning of the current word"""
+        if hasattr(self, 'word'):
+            self.label_meaning.setText(self.word.meaning)
+        else:
+            QMessageBox.warning(self, "Warning", "No word to show meaning.")
+
+    def setup_styles(self):
+        """Defines the styles for the buttons and labels"""
+        self.label_word.setStyleSheet("QLabel { color: blue; font-size: 30px; }")
+        self.label_meaning.setStyleSheet("QLabel { color: green; font-size: 20px; }")
 
     def insert_word_dialog(self):
         pass

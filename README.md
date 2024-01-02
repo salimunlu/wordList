@@ -23,7 +23,7 @@ Aşağıdakilerin yüklü olduğundan emin olun:
 1. Depoyu klonlayın:
 
    ```bash
-   git clone https://github.com/salimunlu47/vocabulary-learning-app.git
+   git clone https://github.com/salimunlu/wordList.git
 
 2. Gerekli kütüphaneleri yükleyin:
 

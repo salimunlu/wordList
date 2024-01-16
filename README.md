@@ -43,4 +43,4 @@ Aşağıdakilerin yüklü olduğundan emin olun:
 - Yeni kelimeler eklemek gibi ek seçenekler için menüye erişim sağlayın.
 
 ## Katkıda Bulunun
-Bu projeye katkıda bulunmak istiyorsanız, çekme isteği gönderebilir veya sorunlar açabilirsiniz.
+Bu projeye katkıda bulunmak istiyorsanız, pull-request gönderebilir veya issue açabilirsiniz.
